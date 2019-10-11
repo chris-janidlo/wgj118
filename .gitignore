@@ -37,6 +37,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# TextMesh Pro log file
+/TextMesh\ Pro/Glyph\ Report.txt*
+
 
 
 # other generally useful files
