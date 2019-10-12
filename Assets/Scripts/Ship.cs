@@ -31,9 +31,10 @@ public class Ship : MonoBehaviour
         fireTimer -= Time.deltaTime;
     }
 
-    EnemyHealth acquireTarget () => FindObjectsOfType<EnemyHealth>()?.
-             Select(eh => new { eh, distance = Vector2.Distance(transform.position, eh.transform.position) })
-            .Where(e => e.distance <= MaxFireRange)
-            .OrderBy(e => e.distance)
-            .FirstOrDefault().eh;
+    EnemyHealth acquireTarget () => FindObjectsOfType<EnemyHealth>()
+        .Select(eh => new { eh, distance = Vector2.Distance(transform.position, eh.transform.position) })
+        .Where(e => e.distance <= MaxFireRange)
+        .OrderBy(e => e.distance)
+        .FirstOrDefault()
+        ?.eh;
 }
