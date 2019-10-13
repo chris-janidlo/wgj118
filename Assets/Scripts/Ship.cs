@@ -2,39 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using crass;
 
-public class Ship : MonoBehaviour
+[RequireComponent(typeof(Collider2D), typeof(Health2D))]
+public class Ship : Singleton<Ship>
 {
-    public PlayerBullet BulletPrefab;
-    public float BulletsPerSecond, MaxFireRange;
+    public float ContactDamage, ChangeDirectionThreshold;
 
-    float timePerBullet => 1.0f / BulletsPerSecond;
+    Vector3 lastFramePosition;
 
-    float fireTimer;
+    void Awake ()
+    {
+        SingletonSetInstance(this, true);
+        GetComponent<Health2D>().Died.AddListener(h => Debug.Log("gameover"));
+
+        lastFramePosition = transform.position;
+    }
 
     void Update ()
     {
-        var target = acquireTarget();
-        
-        if (target != null)
+        var mouse = Input.mousePosition;
+        mouse.z = -CameraCache.Main.transform.position.z;
+        transform.position = CameraCache.Main.ScreenToWorldPoint(mouse);
+
+        if (Vector2.Distance(transform.position, lastFramePosition) >= ChangeDirectionThreshold)
         {
-            Vector2 dir = (target.transform.position - transform.position).normalized;
-            transform.GetChild(0).up = dir;
-
-            if (fireTimer <= 0)
-            {
-                fireTimer = timePerBullet;
-                Instantiate(BulletPrefab, transform.position, Quaternion.identity).Initialize(dir);
-            }
+            transform.up = (transform.position - lastFramePosition).normalized;
+            lastFramePosition = transform.position;
         }
-
-        fireTimer -= Time.deltaTime;
     }
-
-    EnemyHealth acquireTarget () => FindObjectsOfType<EnemyHealth>()
-        .Select(eh => new { eh, distance = Vector2.Distance(transform.position, eh.transform.position) })
-        .Where(e => e.distance <= MaxFireRange)
-        .OrderBy(e => e.distance)
-        .FirstOrDefault()
-        ?.eh;
 }
