@@ -39,7 +39,7 @@ public class Orbiter : MonoBehaviour
 
     void Awake ()
     {
-        GetComponent<Health2D>().Died.AddListener(h => {
+        GetComponent<Health2D>().Died.AddListener(() => {
             BreakageStats.Explode(transform.position);
             Destroy(gameObject);
         });

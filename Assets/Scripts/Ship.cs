@@ -14,7 +14,7 @@ public class Ship : Singleton<Ship>
     void Awake ()
     {
         SingletonSetInstance(this, true);
-        GetComponent<Health2D>().Died.AddListener(h => Debug.Log("gameover"));
+        GetComponent<Health2D>().Died.AddListener(() => Debug.Log("gameover"));
 
         lastFramePosition = transform.position;
     }
