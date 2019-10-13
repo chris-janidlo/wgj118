@@ -10,6 +10,7 @@ public class Ship : Singleton<Ship>
     public float ContactDamage, ChangeDirectionThreshold;
 
     Vector3 lastFramePosition;
+    Vector2 facingDir;
 
     void Awake ()
     {
@@ -17,6 +18,7 @@ public class Ship : Singleton<Ship>
         GetComponent<Health2D>().Died.AddListener(() => Debug.Log("gameover"));
 
         lastFramePosition = transform.position;
+        facingDir = Vector2.up;
     }
 
     void Update ()
@@ -27,8 +29,10 @@ public class Ship : Singleton<Ship>
 
         if (Vector2.Distance(transform.position, lastFramePosition) >= ChangeDirectionThreshold)
         {
-            transform.up = (transform.position - lastFramePosition).normalized;
+            facingDir = (transform.position - lastFramePosition).normalized;
             lastFramePosition = transform.position;
         }
+
+        transform.up = Vector2.Lerp(transform.up, facingDir, 15 * Time.deltaTime);
     }
 }
