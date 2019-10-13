@@ -7,7 +7,7 @@ public class Orbiter : MonoBehaviour
 {
     public float TopSpeed, OrbitalAccel, Damage;
     public Breakage BreakageStats;
-    public Vector2 BurstForceRange;
+    public Vector2 BurstSpeedRange;
 
     Rigidbody2D _rb;
     public Rigidbody2D Rigidbody => _rb ?? (_rb = GetComponent<Rigidbody2D>());
