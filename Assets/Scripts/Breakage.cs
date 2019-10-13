@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using crass;
@@ -20,7 +19,7 @@ public class Breakage
         {
             var effectiveAngle = angle + Random.Range(-VariabilityFromCircle, VariabilityFromCircle);
             var fragment = Object.Instantiate(PartsList.PickRandom(), center, Quaternion.AngleAxis(effectiveAngle, Vector3.forward));
-            var explosiveVelocity = fragment.transform.forward * RandomExtra.Range(fragment.BurstSpeedRange);
+            var explosiveVelocity = fragment.transform.right * RandomExtra.Range(fragment.BurstSpeedRange);
             fragment.Rigidbody.velocity = explosiveVelocity;
 
             angle += 360f / amount;
