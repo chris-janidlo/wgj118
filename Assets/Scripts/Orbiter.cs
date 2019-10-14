@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,10 +32,9 @@ public class Orbiter : MonoBehaviour
         });
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
         Vector2 diffVector = Ship.Instance.transform.position - transform.position;
-
         Vector2 orbitalForce = OrbitalStats.GetForce(diffVector.magnitude) * diffVector.normalized * Time.deltaTime;
         Rigidbody.AddForce(orbitalForce, ForceMode2D.Force);
     }
