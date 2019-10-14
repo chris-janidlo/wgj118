@@ -5,7 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Health2D))]
 public class Orbiter : MonoBehaviour
 {
-    public float TopSpeed, OrbitalAccel, Damage;
+    [System.Serializable]
+    public class OrbitalMechanics
+    {
+        public float CloseDistance, CloseForce, FarDistance, FarForce;
+
+        public float GetForce (float distance)
+        {
+            var lerpAmt = (distance - CloseDistance) / (FarDistance - CloseDistance);
+            return Mathf.Lerp(CloseForce, FarForce, lerpAmt);
+        }
+    }
+
+    public float Damage;
+    public OrbitalMechanics OrbitalStats;
     public Breakage BreakageStats;
     public Vector2 BurstSpeedRange;
 
@@ -22,14 +35,10 @@ public class Orbiter : MonoBehaviour
 
     void Update ()
     {
-        Vector2 orbitalDirection = (Ship.Instance.transform.position - transform.position).normalized;
+        Vector2 diffVector = Ship.Instance.transform.position - transform.position;
 
-        Rigidbody.velocity += orbitalDirection * OrbitalAccel * Time.deltaTime;
-
-        if (Rigidbody.velocity.magnitude > TopSpeed)
-        {
-            Rigidbody.velocity = Rigidbody.velocity.normalized * TopSpeed;
-        }
+        Vector2 orbitalForce = OrbitalStats.GetForce(diffVector.magnitude) * diffVector.normalized * Time.deltaTime;
+        Rigidbody.AddForce(orbitalForce, ForceMode2D.Force);
     }
 
     void OnCollisionEnter2D (Collision2D other)
