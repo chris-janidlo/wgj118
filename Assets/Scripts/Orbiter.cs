@@ -8,12 +8,11 @@ public class Orbiter : MonoBehaviour
     [System.Serializable]
     public class OrbitalMechanics
     {
-        public float CloseDistance, CloseForce, FarDistance, FarForce;
+        public float CloseForce, FarDistance, FarForce;
 
         public float GetForce (float distance)
         {
-            var lerpAmt = (distance - CloseDistance) / (FarDistance - CloseDistance);
-            return Mathf.Lerp(CloseForce, FarForce, lerpAmt);
+            return Mathf.Lerp(CloseForce, FarForce, distance / FarDistance);
         }
     }
 
