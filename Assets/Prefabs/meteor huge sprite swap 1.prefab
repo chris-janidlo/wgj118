@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6383009444904250716, guid: 056b69d48a4134107ac50a7d911dd558,
         type: 3}
       propertyPath: m_Name
-      value: big meteor sprite swap 1
+      value: meteor huge sprite swap 1
       objectReference: {fileID: 0}
     - target: {fileID: 6383009444904250690, guid: 056b69d48a4134107ac50a7d911dd558,
         type: 3}
