@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Health2D))]
 public class Orbiter : MonoBehaviour, IDamager
 {
+    public const float SPAWN_INVULN_TIME = .5f;
     [System.Serializable]
     public class OrbitalMechanics
     {
@@ -48,6 +49,14 @@ public class Orbiter : MonoBehaviour, IDamager
             BreakageStats.Explode(transform.position);
             Destroy(gameObject);
         });
+
+        health.Invuln = true;
+    }
+
+    IEnumerator Start ()
+    {
+        yield return new WaitForSeconds(SPAWN_INVULN_TIME);
+        health.Invuln = false;
     }
 
     void FixedUpdate ()
