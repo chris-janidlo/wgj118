@@ -64,11 +64,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
-      propertyPath: TestForTrueMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
-        type: 3}
       propertyPath: OrbitalStats.CloseForce
       value: 800
       objectReference: {fileID: 0}
@@ -91,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BurstSpeedRange.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: TrueMaxSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908126, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
