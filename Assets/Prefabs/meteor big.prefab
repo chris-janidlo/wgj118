@@ -64,7 +64,7 @@ PrefabInstance:
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: BreakageStats.PartsReleasedRange.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
