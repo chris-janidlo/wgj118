@@ -9,6 +9,7 @@ public class Ship : Singleton<Ship>
 {
     public int MaxLives, CurrentLives;
     public float DamageThreshold, InvulnTime, Thrust, ChangeDirectionThreshold;
+    public Transform OrbitalCenter;
 
     Rigidbody2D _rb;
     public Rigidbody2D Rigidbody => _rb ?? (_rb = GetComponent<Rigidbody2D>());

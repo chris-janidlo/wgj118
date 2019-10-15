@@ -52,7 +52,7 @@ public class Orbiter : MonoBehaviour, IDamager
 
     void FixedUpdate ()
     {
-        Vector2 diffVector = Ship.Instance.transform.position - transform.position;
+        Vector2 diffVector = Ship.Instance.OrbitalCenter.position - transform.position;
         Vector2 orbitalForce = OrbitalStats.GetForce(diffVector.magnitude) * diffVector.normalized * Time.deltaTime;
         Rigidbody.AddForce(orbitalForce, ForceMode2D.Force);
 

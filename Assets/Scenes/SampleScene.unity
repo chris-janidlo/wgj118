@@ -536,6 +536,7 @@ MonoBehaviour:
   InvulnTime: 1
   Thrust: 20
   ChangeDirectionThreshold: 0.15
+  OrbitalCenter: {fileID: 159506199}
 --- !u!50 &466263279
 Rigidbody2D:
   serializedVersion: 4
