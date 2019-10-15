@@ -61,6 +61,7 @@ public class Orbiter : MonoBehaviour, IDamager
             if (TestForTrueMax)
             {
                 TrueMaxSpeed = Rigidbody.velocity.magnitude;
+                Debug.Log(TrueMaxSpeed);
             }
             else
             {
