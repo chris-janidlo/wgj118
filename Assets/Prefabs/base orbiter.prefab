@@ -47,9 +47,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a28ac6c4ccd443c8ff9bdf59752c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  DamageForOthers:
+    MaxDamage: 0
+    MaxSpeed: 0
+    MinDamage: 0
+    MinSpeed: 0
+  DamageForSelf:
+    MaxDamage: 0
+    MaxSpeed: 0
+    MinDamage: 0
+    MinSpeed: 0
   OrbitalStats:
-    CloseDistance: 0
     CloseForce: 0
     FarDistance: 0
     FarForce: 0
@@ -58,6 +66,8 @@ MonoBehaviour:
     PartsReleasedRange: {x: 0, y: 0}
     VariabilityFromCircle: 0
   BurstSpeedRange: {x: 0, y: 0}
+  TrueMaxSpeed: 999
+  TestForTrueMax: 0
 --- !u!114 &5939460981741908124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +111,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 2f1fc94463d2045e9b9f6c4a99c12975, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &5939460981741908098
 CircleCollider2D:
