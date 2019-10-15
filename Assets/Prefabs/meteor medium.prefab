@@ -72,6 +72,51 @@ PrefabInstance:
       propertyPath: OrbitalStats.FarForce
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: TrueMaxSpeed
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForOthers.MaxDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForOthers.MaxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForOthers.MinDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForOthers.MinSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForSelf.MaxDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForSelf.MaxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForSelf.MinDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: DamageForSelf.MinSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908126, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: m_LocalPosition.x
