@@ -41,14 +41,13 @@ public class Orbiter : MonoBehaviour, IDamager
 
     Health2D health;
 
+    Vector2 lastCollisionNormal;
+
     void Awake ()
     {
         health = GetComponent<Health2D>();
 
-        health.Died.AddListener(() => {
-            BreakageStats.Explode(transform.position);
-            Destroy(gameObject);
-        });
+        health.Died.AddListener(onDied);
 
         health.Invuln = true;
     }
@@ -83,6 +82,8 @@ public class Orbiter : MonoBehaviour, IDamager
 
     void OnCollisionEnter2D (Collision2D other)
     {
+        lastCollisionNormal = other.contacts[0].normal * other.relativeVelocity;
+
         var collisionSpeed = other.relativeVelocity.magnitude;
         var otherHealth = other.gameObject.GetComponent<Health2D>();
 
@@ -95,5 +96,18 @@ public class Orbiter : MonoBehaviour, IDamager
         {
             health.CurrentValue -= DamageForSelf.GetDamage(collisionSpeed);
         }
+    }
+
+    void onDied ()
+    {
+        StartCoroutine(deathRoutine());
+    }
+
+    IEnumerator deathRoutine ()
+    {
+        yield return null; // wait a frame to make sure we have the actual latest collision normal
+
+        BreakageStats.Explode(transform.position, lastCollisionNormal);
+        Destroy(gameObject);
     }
 }

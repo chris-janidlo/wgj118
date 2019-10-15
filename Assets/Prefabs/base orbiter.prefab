@@ -64,7 +64,7 @@ MonoBehaviour:
   BreakageStats:
     PartsList: []
     PartsReleasedRange: {x: 0, y: 0}
-    VariabilityFromCircle: 0
+    ArcRange: 10
   BurstSpeedRange: {x: 0, y: 0}
   TrueMaxSpeed: 0
   TestForTrueMax: 0
