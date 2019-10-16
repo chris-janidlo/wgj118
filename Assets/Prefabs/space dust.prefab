@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: OrbitalStats.CloseForce
-      value: 800
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: OrbitalStats.FarForce
-      value: 300
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -192,6 +192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LinearDrag
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908099, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf7e3e06fffa44168d94cc50bb3f43c, type: 3}
