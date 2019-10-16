@@ -19,6 +19,11 @@ public class Breakage
             var fragment = Object.Instantiate(PartsList.PickRandom(), center, Quaternion.identity);
             var explosiveVelocity = Quaternion.AngleAxis(Random.Range(-ArcRange, ArcRange), Vector3.forward) * collisionVelocity;
 
+            if (explosiveVelocity.magnitude > fragment.MaxBurstSpeed)
+            {
+                explosiveVelocity = explosiveVelocity.normalized * fragment.MaxBurstSpeed;
+            }
+
             fragment.Rigidbody.velocity = explosiveVelocity;
         }
     }

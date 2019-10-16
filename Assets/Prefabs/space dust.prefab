@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: space dust
       objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908096, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: _health
@@ -96,6 +101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: IsSpaceDust
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: MaxBurstSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908126, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}

@@ -34,7 +34,7 @@ public class Orbiter : MonoBehaviour, IDamager
     public DamageMechanics DamageForOthers, DamageForSelf;
     public OrbitalMechanics OrbitalStats;
     public Breakage BreakageStats;
-    public Vector2 BurstSpeedRange;
+    public float MaxBurstSpeed;
     public float TrueMaxSpeed; // should be experimentally derived based on orbit alone
     public bool TestForTrueMax;
 
