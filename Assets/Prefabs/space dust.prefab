@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5939460981741908096, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: m_Name
-      value: meteor tiny
+      value: space dust
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: TrueMaxSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: IsSpaceDust
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908126, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,7 +156,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 511ff13fe7153464fb999f5b81c59965,
+      objectReference: {fileID: 21300000, guid: e269728f31c8c4a74b117cf633d5d609,
         type: 3}
     - target: {fileID: 5939460981741908097, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -172,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908099, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf7e3e06fffa44168d94cc50bb3f43c, type: 3}

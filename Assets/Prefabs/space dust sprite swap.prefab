@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2935605829502706788, guid: eb2021853849945349e9f84af9e696c5,
         type: 3}
       propertyPath: m_Name
-      value: meteor tiny sprite swap
+      value: space dust sprite swap
       objectReference: {fileID: 0}
     - target: {fileID: 2935605829502706810, guid: eb2021853849945349e9f84af9e696c5,
         type: 3}
@@ -71,7 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e8fe3d460e4c24a2982aa428cab36a74,
+      objectReference: {fileID: 21300000, guid: b8a3d0191df9e4625ace3f176713a5e1,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb2021853849945349e9f84af9e696c5, type: 3}

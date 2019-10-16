@@ -7,6 +7,7 @@ using crass;
 [RequireComponent(typeof(Rigidbody2D), typeof(Health2D))]
 public class Ship : Singleton<Ship>
 {
+    public int SpaceDustCollected;
     public int MaxLives, CurrentLives;
     public float DamageThreshold, InvulnTime, Thrust, ChangeDirectionThreshold;
     public Transform OrbitalCenter;

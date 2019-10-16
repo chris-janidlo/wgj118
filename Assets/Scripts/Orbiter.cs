@@ -6,6 +6,7 @@ using UnityEngine;
 public class Orbiter : MonoBehaviour, IDamager
 {
     public const float SPAWN_INVULN_TIME = .5f;
+
     [System.Serializable]
     public class OrbitalMechanics
     {
@@ -29,6 +30,7 @@ public class Orbiter : MonoBehaviour, IDamager
         }
     }
 
+    public bool IsSpaceDust;
     public DamageMechanics DamageForOthers, DamageForSelf;
     public OrbitalMechanics OrbitalStats;
     public Breakage BreakageStats;
@@ -86,6 +88,7 @@ public class Orbiter : MonoBehaviour, IDamager
 
         var collisionSpeed = other.relativeVelocity.magnitude;
         var otherHealth = other.gameObject.GetComponent<Health2D>();
+        var otherPlayer = other.gameObject.GetComponent<Ship>();
 
         if (otherHealth != null)
         {
@@ -95,6 +98,11 @@ public class Orbiter : MonoBehaviour, IDamager
         if (other.gameObject.GetComponent<IDamager>() == null)
         {
             health.CurrentValue -= DamageForSelf.GetDamage(collisionSpeed);
+        }
+
+        if (otherPlayer != null && IsSpaceDust)
+        {
+            otherPlayer.SpaceDustCollected++;
         }
     }
 
