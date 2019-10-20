@@ -37,25 +37,21 @@ public class MeteorSpawner : MonoBehaviour
         var w = CameraCache.Main.pixelWidth;
         var h = CameraCache.Main.pixelHeight;
 
-        bool firstIsStuck = RandomExtra.Chance(.5f);
+        bool xIsStuck = RandomExtra.Chance(.5f);
         bool stuckOnUpper = RandomExtra.Chance(.5f);
 
         Vector2 edgeLocScreen = new Vector2
         (
-             firstIsStuck ? (stuckOnUpper ? w : 0) : Random.Range(0, w),
-            !firstIsStuck ? (stuckOnUpper ? h : 0) : Random.Range(0, h)
+             xIsStuck ? (stuckOnUpper ? w : 0) : Random.Range(0, w),
+            !xIsStuck ? (stuckOnUpper ? h : 0) : Random.Range(0, h)
         );
 
         Vector2 edgeLocWorld = CameraCache.Main.ScreenToWorldPoint(edgeLocScreen);
 
-        Vector2 diff = edgeLocWorld - (Vector2) Ship.Instance.transform.position;
-
-        bool xIsLarger = Mathf.Abs(diff.x) > Mathf.Abs(diff.y);
-
         Vector2 cardinal = new Vector2
         (
-             xIsLarger ? Mathf.Sign(diff.x) : 0,
-            !xIsLarger ? Mathf.Sign(diff.y) : 0
+             xIsStuck ? (stuckOnUpper ? 1 : -1) : 0,
+            !xIsStuck ? (stuckOnUpper ? 1 : -1) : 0
         );
 
         var rad = meteor.GetComponent<CircleCollider2D>().radius;
