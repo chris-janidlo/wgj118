@@ -12,16 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: meteor medium
       objectReference: {fileID: 0}
-    - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
-        type: 3}
-      propertyPath: _health
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
-        type: 3}
-      propertyPath: MaxValue
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: BreakageStats.PartsList.Array.size
@@ -80,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
       propertyPath: TrueMaxSpeed
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908125, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -153,6 +143,16 @@ PrefabInstance:
         type: 3}
       propertyPath: BreakageStats.ArcRange
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: _health
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939460981741908124, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
+        type: 3}
+      propertyPath: MaxValue
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5939460981741908126, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
         type: 3}
@@ -239,11 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LinearDrag
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939460981741908099, guid: 7bf7e3e06fffa44168d94cc50bb3f43c,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf7e3e06fffa44168d94cc50bb3f43c, type: 3}
