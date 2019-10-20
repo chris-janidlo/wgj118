@@ -10,6 +10,7 @@ public class Ship : Singleton<Ship>
     public int SpaceDustCollected;
     public int MaxLives, CurrentLives;
     public float DamageThreshold, InvulnTime, Thrust, ChangeDirectionThreshold;
+    public Vector2 MinAllowedMousePosition, MaxAllowedMousePosition;
     public Transform OrbitalCenter;
 
     Rigidbody2D _rb;
@@ -39,7 +40,13 @@ public class Ship : Singleton<Ship>
     {
         var mouse = Input.mousePosition;
         mouse.z = -CameraCache.Main.transform.position.z;
+
         var realPos = CameraCache.Main.ScreenToWorldPoint(mouse);
+        realPos = new Vector2
+        (
+            Mathf.Clamp(realPos.x, MinAllowedMousePosition.x, MaxAllowedMousePosition.x),
+            Mathf.Clamp(realPos.y, MinAllowedMousePosition.y, MaxAllowedMousePosition.y)
+        );
 
         Rigidbody.velocity = (realPos - transform.position) * Thrust;
 
