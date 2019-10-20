@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Health2D))]
+[RequireComponent(typeof(Breakage))]
 public class Orbiter : MonoBehaviour, IDamager
 {
     public const float SPAWN_INVULN_TIME = .5f;
@@ -33,7 +34,6 @@ public class Orbiter : MonoBehaviour, IDamager
     public bool IsSpaceDust;
     public DamageMechanics DamageForOthers, DamageForSelf;
     public OrbitalMechanics OrbitalStats;
-    public Breakage BreakageStats;
     public float MaxBurstSpeed;
     public float TrueMaxSpeed; // should be experimentally derived based on orbit alone
     public bool TestForTrueMax;
@@ -45,17 +45,11 @@ public class Orbiter : MonoBehaviour, IDamager
 
     Vector2 lastCollisionNormal;
 
-    void Awake ()
-    {
-        health = GetComponent<Health2D>();
-
-        health.Died.AddListener(onDied);
-
-        health.Invuln = true;
-    }
-
     IEnumerator Start ()
     {
+        health = GetComponent<Health2D>();
+        health.Invuln = true;
+
         yield return new WaitForSeconds(SPAWN_INVULN_TIME);
         health.Invuln = false;
     }
@@ -84,8 +78,6 @@ public class Orbiter : MonoBehaviour, IDamager
 
     void OnCollisionEnter2D (Collision2D other)
     {
-        lastCollisionNormal = other.contacts[0].normal * other.relativeVelocity;
-
         var collisionSpeed = other.relativeVelocity.magnitude;
         var otherHealth = other.gameObject.GetComponent<Health2D>();
         var otherPlayer = other.gameObject.GetComponent<Ship>();
@@ -104,18 +96,5 @@ public class Orbiter : MonoBehaviour, IDamager
         {
             otherPlayer.SpaceDustCollected++;
         }
-    }
-
-    void onDied ()
-    {
-        StartCoroutine(deathRoutine());
-    }
-
-    IEnumerator deathRoutine ()
-    {
-        yield return null; // wait a frame to make sure we have the actual latest collision normal
-
-        BreakageStats.Explode(transform.position, lastCollisionNormal);
-        Destroy(gameObject);
     }
 }

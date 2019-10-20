@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5939460981741908126}
   - component: {fileID: 5939460981741908125}
   - component: {fileID: 5939460981741908124}
+  - component: {fileID: 3649581574013589500}
   - component: {fileID: 5939460981741908099}
   - component: {fileID: 5939460981741908098}
   - component: {fileID: 5939460981741908097}
@@ -62,10 +63,6 @@ MonoBehaviour:
     CloseForce: 0
     FarDistance: 0
     FarForce: 0
-  BreakageStats:
-    PartsList: []
-    PartsReleasedRange: {x: 0, y: 0}
-    ArcRange: 10
   MaxBurstSpeed: 999
   TrueMaxSpeed: 0
   TestForTrueMax: 0
@@ -93,6 +90,21 @@ MonoBehaviour:
   Revived:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3649581574013589500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939460981741908096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64d960d6f27341208ee344731b32c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PartsList: []
+  PartsReleasedRange: {x: 0, y: 0}
+  ArcRange: 0
 --- !u!50 &5939460981741908099
 Rigidbody2D:
   serializedVersion: 4
