@@ -75,7 +75,17 @@ PrefabInstance:
     - target: {fileID: 353176986234610591, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
       propertyPath: Speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 353176986234610591, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: Acceleration
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 353176986234610591, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: ShootSlowPercent
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5285748899201759171, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
@@ -89,6 +99,27 @@ PrefabInstance:
       value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 5285748899201759171, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60df0e43d981f4ed68a96f8960ff6a19,
+        type: 3}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

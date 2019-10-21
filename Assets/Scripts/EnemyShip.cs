@@ -9,7 +9,9 @@ public class EnemyShip : MonoBehaviour
     public enum MovementType { Cardinal, Diagonal, Follow }
 
     public MovementType Movement;
-    public float Speed, ShootRange, TimePerShot;
+    public float Speed, Acceleration, ShootRange, TimePerShot;
+    [Range(0, 1)]
+    public float ShootSlowPercent;
     public EnemyLaser LaserPrefab;
 
     float shotTimer;
@@ -17,15 +19,15 @@ public class EnemyShip : MonoBehaviour
     Rigidbody2D _rb;
     public Rigidbody2D Rigidbody => _rb ?? (_rb = GetComponent<Rigidbody2D>());
 
+    Vector2 desiredVelocity;
+
     void Start ()
     {
-        Vector2 velocity;
-
         switch (Movement)
         {
             case MovementType.Cardinal:
                 bool x = RandomExtra.Chance(.5f), p = RandomExtra.Chance(.5f);
-                velocity = new Vector2(x ? p ? 1 : -1 : 0, !x ? p ? 1 : -1 : 0) * Speed;
+                desiredVelocity = new Vector2(x ? p ? 1 : -1 : 0, !x ? p ? 1 : -1 : 0) * Speed;
                 break;
             
             case MovementType.Diagonal:
@@ -36,7 +38,7 @@ public class EnemyShip : MonoBehaviour
                     new Vector2(-1, 1),
                     new Vector2(-1, -1)
                 };
-                velocity = directions.PickRandom() * Speed;
+                desiredVelocity = directions.PickRandom() * Speed;
                 break;
 
             case MovementType.Follow:
@@ -46,48 +48,58 @@ public class EnemyShip : MonoBehaviour
             default:
                 throw new System.InvalidOperationException($"unexpected MovementType {Movement}");
         }
+
+        Rigidbody.velocity = desiredVelocity;
     }
 
     void Update ()
     {
+        shotTimer -= Time.deltaTime;
+
+        Vector2 playerPos = Ship.Instance.transform.position;
+
+        bool inRange = Vector2.Distance(transform.position, playerPos) <= ShootRange;
+        
+        if (inRange && shotTimer <= 0)
+        {
+            shotTimer = TimePerShot;
+            Instantiate(LaserPrefab, transform.position, Quaternion.identity).ShootToward(playerPos);
+        }
+
         if (Movement == MovementType.Follow)
         {
             var diff = Ship.Instance.transform.position - transform.position;
 
             if (diff.magnitude > Speed * Time.deltaTime)
             {
-                Rigidbody.velocity = diff.normalized * Speed;
+                desiredVelocity = diff.normalized * Speed;
             }
             else
             {
-                Rigidbody.velocity = diff;
+                desiredVelocity = diff;
             }
         }
 
-        transform.up = -Rigidbody.velocity;
+        Rigidbody.velocity += (desiredVelocity * (inRange ? ShootSlowPercent : 1) - Rigidbody.velocity) * Acceleration * Time.deltaTime;
 
-        shotTimer -= Time.deltaTime;
-
-        Vector2 playerPos = Ship.Instance.transform.position;
-
-        if (Vector2.Distance(transform.position, playerPos) <= ShootRange && shotTimer <= 0)
-        {
-            shotTimer = TimePerShot;
-            Instantiate(LaserPrefab, transform.position, Quaternion.identity).ShootToward(playerPos);
-        }
+        Transform visual = transform.GetChild(0);
+        Vector2 lookDir = inRange ? ((Vector2) transform.position - playerPos) : -Rigidbody.velocity;
+        visual.up = Vector2.Lerp(visual.up, lookDir, 15 * Time.deltaTime);
     }
 
     void OnCollisionEnter2D (Collision2D other)
     {
-        if (Movement == MovementType.Follow) return;
+        if (Movement == MovementType.Follow || other.gameObject.tag != "Wall") return;
 
         if (other.contacts[0].normal.x != 0)
         {
-            Rigidbody.velocity = new Vector2(-Rigidbody.velocity.x, Rigidbody.velocity.y);
+            desiredVelocity = new Vector2(-desiredVelocity.x, desiredVelocity.y);
+            // Rigidbody.velocity = new Vector2(-Rigidbody.velocity.x, Rigidbody.velocity.y);
         }
         else
         {
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, -Rigidbody.velocity.y);            
+            desiredVelocity = new Vector2(desiredVelocity.x, -desiredVelocity.y);
+            // Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, -Rigidbody.velocity.y);         
         }
     }
 }

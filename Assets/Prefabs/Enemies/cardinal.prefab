@@ -70,7 +70,12 @@ PrefabInstance:
     - target: {fileID: 353176986234610591, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
       propertyPath: Speed
-      value: 12
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 353176986234610591, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: Acceleration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5285748899201759171, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
@@ -79,6 +84,27 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d28c31dabcd8f4d61b4c9d396feee880,
         type: 3}
     - target: {fileID: 5285748899201759171, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d28c31dabcd8f4d61b4c9d396feee880,
+        type: 3}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190736400901710373, guid: fe13f58023b0442aabf77b3e77f3690b,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
