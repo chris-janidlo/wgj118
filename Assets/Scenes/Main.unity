@@ -525,7 +525,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 100
   m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
     - {fileID: 3492229499760905282, guid: 1d979b61cfe7c475dbf8d917aa702a03, type: 3}
     - {fileID: 423086129446300353, guid: d37c50a1775aa457ba0cf8e3fd536f21, type: 3}
     AvoidRepeats: 0
-  SpawnAtStart: 0
+  SpawnAtStart: 1
 --- !u!4 &1220902777
 Transform:
   m_ObjectHideFlags: 0
