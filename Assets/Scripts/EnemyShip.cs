@@ -13,6 +13,7 @@ public class EnemyShip : MonoBehaviour
     [Range(0, 1)]
     public float ShootSlowPercent;
     public EnemyLaser LaserPrefab;
+    public SpriteRenderer Visuals;
 
     float shotTimer;
 
@@ -58,7 +59,7 @@ public class EnemyShip : MonoBehaviour
 
         Vector2 playerPos = Ship.Instance.transform.position;
 
-        bool inRange = Vector2.Distance(transform.position, playerPos) <= ShootRange;
+        bool inRange = Visuals.isVisible && Vector2.Distance(transform.position, playerPos) <= ShootRange;
         
         if (inRange && shotTimer <= 0)
         {
@@ -82,7 +83,7 @@ public class EnemyShip : MonoBehaviour
 
         Rigidbody.velocity += (desiredVelocity * (inRange ? ShootSlowPercent : 1) - Rigidbody.velocity) * Acceleration * Time.deltaTime;
 
-        Transform visual = transform.GetChild(0);
+        Transform visual = Visuals.transform;
         Vector2 lookDir = inRange ? ((Vector2) transform.position - playerPos) : -Rigidbody.velocity;
         visual.up = Vector2.Lerp(visual.up, lookDir, 15 * Time.deltaTime);
     }

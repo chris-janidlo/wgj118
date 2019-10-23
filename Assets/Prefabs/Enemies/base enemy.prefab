@@ -136,6 +136,7 @@ MonoBehaviour:
   ShootSlowPercent: 0
   LaserPrefab: {fileID: 1317193076654363000, guid: dda3609c7cfa04a07a310121b3b5ec32,
     type: 3}
+  Visuals: {fileID: 7190736400901710373}
 --- !u!114 &633755482773157442
 MonoBehaviour:
   m_ObjectHideFlags: 0
