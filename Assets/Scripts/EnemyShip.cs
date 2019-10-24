@@ -92,15 +92,14 @@ public class EnemyShip : MonoBehaviour
     {
         if (Movement == MovementType.Follow || other.gameObject.tag != "Wall") return;
 
-        if (other.contacts[0].normal.x != 0)
+        // use round because normals against tilemap collider sometimes show up as really tiny but nonzero values
+        if (Mathf.Round(other.GetContact(0).normal.x) == 0)
         {
-            desiredVelocity = new Vector2(-desiredVelocity.x, desiredVelocity.y);
-            // Rigidbody.velocity = new Vector2(-Rigidbody.velocity.x, Rigidbody.velocity.y);
+            desiredVelocity = new Vector2(desiredVelocity.x, -desiredVelocity.y);
         }
         else
         {
-            desiredVelocity = new Vector2(desiredVelocity.x, -desiredVelocity.y);
-            // Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, -Rigidbody.velocity.y);         
+            desiredVelocity = new Vector2(-desiredVelocity.x, desiredVelocity.y);
         }
     }
 }
