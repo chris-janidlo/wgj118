@@ -11,12 +11,24 @@ public class OffscreenSpawner<T, TBag> : MonoBehaviour
     public TBag Spawns;
     public bool SpawnAtStart;
 
+    public float TimeUntilNextSpawn { get; private set; }
+
     IEnumerator Start ()
     {
         while (true)
         {
             if (SpawnAtStart) StartCoroutine(objectSpawnLoop());
-            yield return new WaitForSeconds(RandomExtra.Range(TimePerSpawnRange));
+
+            TimeUntilNextSpawn = RandomExtra.Range(TimePerSpawnRange);
+
+            while (TimeUntilNextSpawn > 0)
+            {
+                TimeUntilNextSpawn -= Time.deltaTime;
+                yield return null;
+            }
+
+            TimeUntilNextSpawn = 0;
+
             if (!SpawnAtStart) StartCoroutine(objectSpawnLoop());
         }
     }
